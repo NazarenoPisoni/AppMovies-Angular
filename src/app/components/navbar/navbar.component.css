@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 50px;
+    width: 100%;
+    background-color: black;
+}
+
+#nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 20px;
+    flex-wrap: wrap;
+}
+
+img {
+    height: 50px;
+    width: 150px;
+}
+
+a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
