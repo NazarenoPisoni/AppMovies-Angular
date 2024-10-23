@@ -8,6 +8,8 @@ import { Observable } from 'rxjs';
 export class MoviesService {
 
   private apiKey: string = '02319fe9ef3d0c1d5fefc135738475bb';
+  private baseUrl: string = 'https://api.themoviedb.org/3';
+
 
   constructor(private http : HttpClient) { }
 
@@ -16,4 +18,12 @@ export class MoviesService {
 
     return this.http.get(URL);
   }
+
+  searchMoviesAndSeries(query: string): Observable<any> {
+    const URL = `${this.baseUrl}/search/multi?api_key=${this.apiKey}&query=${query}&language=es`;
+    return this.http.get(URL);
+  }
+
+ 
+
 }
