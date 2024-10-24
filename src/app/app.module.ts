@@ -6,6 +6,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { SearchboxComponent } from './components/searchbox/searchbox.component';
 import { FilmsDetailsComponent } from './components/films-details/films-details.component';
 
 @NgModule({
@@ -13,12 +15,15 @@ import { FilmsDetailsComponent } from './components/films-details/films-details.
     AppComponent,
     NavbarComponent,
     HeaderComponent,
+    SearchboxComponent
+
     FilmsDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
