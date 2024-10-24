@@ -19,11 +19,10 @@ export class MoviesService {
     return this.http.get(URL);
   }
 
+
   searchMoviesAndSeries(query: string): Observable<any> {
     const URL = `${this.baseUrl}/search/multi?api_key=${this.apiKey}&query=${query}&language=es`;
     return this.http.get(URL);
   }
 
- 
 
-}

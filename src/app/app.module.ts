@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { SearchboxComponent } from './components/searchbox/searchbox.component';
+import { FilmsDetailsComponent } from './components/films-details/films-details.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,8 @@ import { SearchboxComponent } from './components/searchbox/searchbox.component';
     NavbarComponent,
     HeaderComponent,
     SearchboxComponent
+
+    FilmsDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -25,4 +28,5 @@ import { SearchboxComponent } from './components/searchbox/searchbox.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { } 
+ 
