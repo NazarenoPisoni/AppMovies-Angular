@@ -1,0 +1,85 @@
+<div class="contain mt-3 mb-5 p-4">
+    <div class="row">
+        <h5 class="text-black">Peliculas de Acción</h5>
+        <div class="rowposter mt-3 p-2">
+            <ng-container *ngFor="let pelicula of actionMoviesResults">
+                <img src="https://image.tmdb.org/t/p/original/{{ pelicula.poster_path }}" alt="" class="rowimg largeposter">
+            </ng-container>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <h5 class="text-black">Peliculas de Comedia</h5>
+        <div class="rowposter mt-3 p-2">
+            <ng-container *ngFor="let pelicula of comedyMoviesResults">
+                <img src="https://image.tmdb.org/t/p/original/{{ pelicula.poster_path }}" alt="" class="rowimg largeposter">
+            </ng-container>
+        </div>
+    </div>
+
+    <div class="row">
+        <h5 class="text-black">Peliculas de Fantasia</h5>
+        <div class="rowposter mt-3 p-2">
+            <ng-container *ngFor="let pelicula of fantasyMoviesResults">
+                <img src="https://image.tmdb.org/t/p/original/{{ pelicula.poster_path }}" alt="" class="rowimg largeposter">
+            </ng-container>
+        </div>
+    </div>
+
+    <div class="row">
+        <h5 class="text-black">Peliculas de Drama</h5>
+        <div class="rowposter mt-3 p-2">
+            <ng-container *ngFor="let pelicula of dramaMoviesResults">
+                <img src="https://image.tmdb.org/t/p/original/{{ pelicula.poster_path }}" alt="" class="rowimg largeposter">
+            </ng-container>
+        </div>
+    </div>
+
+    <div class="row">
+        <h5 class="text-black">Peliculas de Misterio</h5>
+        <div class="rowposter mt-3 p-2">
+            <ng-container *ngFor="let pelicula of misteryMoviesResults">
+                <img src="https://image.tmdb.org/t/p/original/{{ pelicula.poster_path }}" alt="" class="rowimg largeposter">
+            </ng-container>
+        </div>
+    </div>
+
+    <div class="row">
+        <h5 class="text-black">Documentales</h5>
+        <div class="rowposter mt-3 p-2">
+            <ng-container *ngFor="let pelicula of documentalMoviesResults">
+                <img src="https://image.tmdb.org/t/p/original/{{ pelicula.poster_path }}" alt="" class="rowimg largeposter">
+            </ng-container>
+        </div>
+    </div>
+    
+
+    <div class="row">
+        <h5 class="text-black">Peliculas de Suspenso</h5>
+        <div class="rowposter mt-3 p-2">
+            <ng-container *ngFor="let pelicula of suspensoMoviesResults">
+                <img src="https://image.tmdb.org/t/p/original/{{ pelicula.poster_path }}" alt="" class="rowimg largeposter">
+            </ng-container>
+        </div>
+    </div>
+
+    <div class="row">
+        <h5 class="text-black">Peliculas de Crimenes</h5>
+        <div class="rowposter mt-3 p-2">
+            <ng-container *ngFor="let pelicula of crimenMoviesResults">
+                <img src="https://image.tmdb.org/t/p/original/{{ pelicula.poster_path }}" alt="" class="rowimg largeposter">
+            </ng-container>
+        </div>
+    </div>
+
+    <div class="row">
+        <h5 class="text-black">Peliculas de Ciencia Ficcion</h5>
+        <div class="rowposter mt-3 p-2">
+            <ng-container *ngFor="let pelicula of cienciaFiccionMoviesResults">
+                <img src="https://image.tmdb.org/t/p/original/{{ pelicula.poster_path }}" alt="" class="rowimg largeposter">
+            </ng-container>
+        </div>
+    </div>
+</div>
+

@@ -8,7 +8,7 @@ import { MoviesService } from 'src/app/services/movies.service';
 })
 export class SearchboxComponent {
   searchTerm: string = '';
-  results: any[] = [];
+  results: any[] = [];  
 
   constructor(private moviesService: MoviesService) {} // Inyecta el servicio
 
@@ -29,3 +29,5 @@ export class SearchboxComponent {
     );
   }
 }
+
+

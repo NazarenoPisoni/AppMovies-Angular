@@ -1,26 +1,18 @@
 
-<div class="column">
-    
-    <div class="search-container">
+
+<div class="media">
+  <div class="search-container">
     <input type="text" [(ngModel)]="searchTerm" placeholder="Buscar película o serie..." class="search-input">
     <button class="btn btn-primary search-button" (click)="searchMovies()">Buscar</button>
-    </div>
-  
-  <!-- Mostrar resultados de la búsqueda -->
+  </div>
+
   <div *ngIf="results.length > 0" class="search-results">
-    <h3>Resultados de la búsqueda:</h3>
-    <div class="results-grid">
-      <div *ngFor="let result of results" class="result-item">
-        <!-- Mostrar imagen del resultado si está disponible -->
-        <img *ngIf="result.poster_path" [src]="'https://image.tmdb.org/t/p/w200' + result.poster_path" alt="{{ result.title || result.name }}" class="result-img">
-        <!-- Título o nombre (si es una serie) -->
-        <h4>{{ result.title || result.name }}</h4>
-        <!-- Descripción -->
-        <p *ngIf="result.overview">{{ result.overview }}</p>
-        <p *ngIf="!result.overview">No hay descripción disponible.</p>
-      </div>
+    <div *ngFor="let result of results" class="d-flex align-items-center border p-2">
+      <img *ngIf="result.poster_path && result.overview" [src]="'https://image.tmdb.org/t/p/w200' + result.poster_path" alt="{{ result.title || result.name }}" class="align-self-start mr-3">
+        <div class="media-body">
+          <h5 class="mt-0">{{result.title || result.name}}</h5>
+          <p *ngIf="result.overview">{{result.overview}}</p>
+        </div>
     </div>
-  </div>  
+  </div>
 </div>
-
-
