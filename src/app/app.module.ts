@@ -6,12 +6,14 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FilmsDetailsComponent } from './components/films-details/films-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    HeaderComponent
+    HeaderComponent,
+    FilmsDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -21,4 +23,5 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { } 
+ 

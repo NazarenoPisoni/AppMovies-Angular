@@ -17,3 +17,4 @@ export class MoviesService {
     return this.http.get(URL);
   }
 }
+ 
