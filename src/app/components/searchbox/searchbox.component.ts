@@ -12,10 +12,15 @@ export class SearchboxComponent {
 
   constructor(private moviesService: MoviesService) {} // Inyecta el servicio
 
-  // Método para manejar la búsqueda
+  onSearchNavBar(term: string) {
+    this.searchTerm = term;
+    this.searchMovies();
+  }
+
+  
   searchMovies() {
     if (this.searchTerm.trim() === '') {
-      return; // No hacer nada si la búsqueda está vacía
+      return; //manejo busqueda vacia
     }
 
     this.moviesService.searchMoviesAndSeries(this.searchTerm).subscribe(

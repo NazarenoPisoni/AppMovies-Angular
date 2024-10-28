@@ -1,50 +1,102 @@
-.search-container {
+.carousel-inner
+{
+    height: 700px;
+}
+
+.carousel-inner .carousel-item img
+{
+    height: 700px;
+    object-fit: cover;
+}
+
+.carousel-caption h2
+{
+    color: #E50914;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.carousel-caption p 
+{
+    color: #ffffff;
+}
+
+.rowposter{
     display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
+    overflow-y: hidden;
+    overflow-x: scroll;
+}
 
-  .search-input {
-    width: 300px;
-    padding: 8px;
-  }
-
-  .search-button {
-    margin-left: 10px;
-    padding: 8px 16px;
-  }
-
-  .search-results {
-    padding: 20px;
-    text-align: center;
-  }
-
-  .results-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-  }
-
-  .result-item {
-    width: 200px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 10px;
-    background-color: #f9f9f9;
-  }
-
-  .result-img {
+.rowimg
+{
+    max-height: 100px;
+    object-fit: contain;
     width: 100%;
-    border-radius: 8px;
-  }
+    box-sizing: content-box;
+    transition: transform 450ms;
+    margin-right: 7px;
+}
 
-  .result-item h4 {
-    margin-top: 10px;
-    font-size: 1.1em;
-  }
+.rowimg:hover
+{
+    transform: scale(1.09);
+    cursor: pointer;
+}
 
-  .result-item p {
-    font-size: 0.9em;
-    color: #666;
-  }
+.largeposter{
+    max-height: 300px;
+}
+
+.rowposter::-webkit-scrollbar
+{
+    display: none;
+}.search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 300px;
+  padding: 8px;
+}
+
+.search-button {
+  margin-left: 10px;
+  padding: 8px 16px;
+}
+
+.search-results {
+  padding: 20px;
+  text-align: center;
+}
+
+.results-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.result-item {
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+.result-img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.result-item h4 {
+  margin-top: 10px;
+  font-size: 1.1em;
+}
+
+.result-item p {
+  font-size: 0.9em;
+  color: #666;
+}

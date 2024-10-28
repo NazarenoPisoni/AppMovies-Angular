@@ -1,18 +1,44 @@
-
-
 <div class="media">
-  <div class="search-container">
+<!--   <div class="search-container">
     <input type="text" [(ngModel)]="searchTerm" placeholder="Buscar película o serie..." class="search-input">
     <button class="btn btn-primary search-button" (click)="searchMovies()">Buscar</button>
+  </div> -->
+  <div class="container mt-4">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-md-10">
+        <div class="input-group">
+          <input
+            type="text"
+            [(ngModel)]="searchTerm"
+            placeholder="Buscar película o serie..."
+            class="form-control bg-dark text-white border-secondary"
+          >
+          <button class="btn btn-primary" (click)="searchMovies()">Buscar</button>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div *ngIf="results.length > 0" class="search-results">
+  <div *ngIf="results.length > 0" class="search-results p-2">
     <div *ngFor="let result of results" class="d-flex align-items-center border p-2">
       <img *ngIf="result.poster_path && result.overview" [src]="'https://image.tmdb.org/t/p/w200' + result.poster_path" alt="{{ result.title || result.name }}" class="align-self-start mr-3">
-        <div class="media-body">
-          <h5 class="mt-0">{{result.title || result.name}}</h5>
-          <p *ngIf="result.overview">{{result.overview}}</p>
+         
+        <div class="media-body" [routerLink]="['/details', result.id]">
+          <h5 class="mt-0 text-white">{{result.title || result.name}}</h5>
+          <p *ngIf="result.overview" class="text-white">{{result.overview}}</p>
         </div>
     </div>
   </div>
+
+<!--   <div class="row">
+    
+    <div class="rowposter mt-3 p-2">
+      <h5 class="text-black"></h5>
+        <ng-container *ngFor="let result of results">
+            <img src="https://image.tmdb.org/t/p/original/{{ result.poster_path }}" alt="" class="rowimg largeposter"
+            [routerLink]="['/details', result.id]">
+        </ng-container>
+    </div>
+</div> -->
 </div>
+<router-outlet></router-outlet>
