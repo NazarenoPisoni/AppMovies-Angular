@@ -1,19 +1,22 @@
-<div class="contain mt-3 mb-5 p-4">
+<app-header></app-header>
+<app-searchbox></app-searchbox>
+<div class="contain mt-3 mb-5 p-4">        
     <div class="row">
         <h5 class="text-black">Peliculas de Acción</h5>
         <div class="rowposter mt-3 p-2">
             <ng-container *ngFor="let pelicula of actionMoviesResults">
-                <img src="https://image.tmdb.org/t/p/original/{{ pelicula.poster_path }}" alt="" class="rowimg largeposter">
+                <img src="https://image.tmdb.org/t/p/original/{{ pelicula.poster_path }}" alt="" class="rowimg largeposter"
+                [routerLink]="['/details', pelicula.id]">
             </ng-container>
         </div>
     </div>
-
 
     <div class="row">
         <h5 class="text-black">Peliculas de Comedia</h5>
         <div class="rowposter mt-3 p-2">
             <ng-container *ngFor="let pelicula of comedyMoviesResults">
-                <img src="https://image.tmdb.org/t/p/original/{{ pelicula.poster_path }}" alt="" class="rowimg largeposter">
+                <img src="https://image.tmdb.org/t/p/original/{{ pelicula.poster_path }}" alt="" class="rowimg largeposter"
+                [routerLink]="['/details', pelicula.id]">
             </ng-container>
         </div>
     </div>
@@ -82,4 +85,5 @@
         </div>
     </div>
 </div>
+
 

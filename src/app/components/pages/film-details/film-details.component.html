@@ -1,1 +1,15 @@
-<p>film-details works!</p>
+<router-outlet></router-outlet>
+<img src="https://image.tmdb.org/t/p/original/{{movieDetails.backdrop_path}}" class="img-fluid" alt="Responsive image">
+
+
+<div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title">{{movieDetails.title}}</h5>
+      <p class="card-text">{{movieDetails.overview}}</p>
+      <p>{{movieDetails.vote_average}} </p>
+        <br>
+      <p class="card-text"><small class="text-body-secondary">{{movieDetails.release_date}}</small></p>
+    </div>
+    <img src="https://image.tmdb.org/t/p/original/{{movieDetails.poster_path}}" alt="" width="50%" height="50%">
+
+  </div>

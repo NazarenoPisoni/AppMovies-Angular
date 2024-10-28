@@ -1,0 +1,10 @@
+.fondo {
+    background: linear-gradient(#000000, #1b004d)
+}
+.background-div {
+    width: 100%;
+    height: 500px; /* O el tamaño que desees */
+    background-size: cover;
+    background-position: center;
+  }
+  

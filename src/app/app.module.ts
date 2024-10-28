@@ -9,19 +9,23 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { SearchboxComponent } from './components/searchbox/searchbox.component';
 import { HomeComponent } from './components/pages/home/home.component';
+import { RouterModule, RouterOutlet } from '@angular/router';
+import { FilmDetailsComponent } from './components/pages/film-details/film-details.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HeaderComponent,
     SearchboxComponent,
-    HomeComponent    
+    HomeComponent,
+    FilmDetailsComponent   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

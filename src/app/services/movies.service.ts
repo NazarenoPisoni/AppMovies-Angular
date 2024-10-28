@@ -13,6 +13,8 @@ export class MoviesService {
 
   constructor(private http : HttpClient) { }
 
+  /* Solicitudes a apis para la carga de la home page */
+
   getTrendingMovies() : Observable<any> {
     const URL = `https://api.themoviedb.org/3/trending/movie/week?api_key=${this.apiKey}&language=es`;
 
@@ -81,4 +83,14 @@ export class MoviesService {
     return this.http.get(URL);
   }
 
+
+  /* Traer detalles de peliculas */
+
+  getMovieDetails (id:any): Observable<any> {
+    const URL = (`${this.baseUrl}/movie/${id}?api_key=${this.apiKey}&language=es`);
+    return this.http.get(URL);
+  }
+
+  
+  
 }
