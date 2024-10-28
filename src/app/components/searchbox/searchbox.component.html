@@ -19,7 +19,9 @@
     </div>
   </div>
 
-  <div *ngIf="results.length > 0" class="search-results p-2">
+
+
+  <!-- <div *ngIf="results.length > 0" class="search-results p-2">
     <div *ngFor="let result of results" class="d-flex align-items-center border p-2">
       <img *ngIf="result.poster_path && result.overview" [src]="'https://image.tmdb.org/t/p/w200' + result.poster_path" alt="{{ result.title || result.name }}" class="align-self-start mr-3">
          
@@ -28,7 +30,7 @@
           <p *ngIf="result.overview" class="text-white">{{result.overview}}</p>
         </div>
     </div>
-  </div>
+  </div>  -->
 
 <!--   <div class="row">
     
@@ -41,4 +43,3 @@
     </div>
 </div> -->
 </div>
-<router-outlet></router-outlet>

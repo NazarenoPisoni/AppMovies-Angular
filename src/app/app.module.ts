@@ -11,6 +11,8 @@ import { SearchboxComponent } from './components/searchbox/searchbox.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { FilmDetailsComponent } from './components/pages/film-details/film-details.component';
+import { SearchResultsComponent } from './components/pages/search-results/search-results.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,8 @@ import { FilmDetailsComponent } from './components/pages/film-details/film-detai
     HeaderComponent,
     SearchboxComponent,
     HomeComponent,
-    FilmDetailsComponent   
+    FilmDetailsComponent,
+    SearchResultsComponent   
   ],
   imports: [
     BrowserModule,
