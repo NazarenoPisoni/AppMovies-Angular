@@ -22,12 +22,9 @@ export class FilmDetailsComponent implements OnInit {
   }
 
   getDetailsById(movieId:any){
-    this.movieServices.getMovieDetails(movieId).subscribe(async(result)=>{
-      this.movieDetails = await result;
+    this.movieServices.getMovieDetails(movieId).subscribe((result)=>{
+      this.movieDetails = result;
     });
-
-
-
   }
 
 }

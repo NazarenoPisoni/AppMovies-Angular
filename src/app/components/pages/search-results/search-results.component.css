@@ -67,8 +67,9 @@
 }
 
 .search-results {
-  padding: 20px;
-  text-align: center;
+  padding: 20%;
+  text-align: justify;
+  border-radius: 15px;
 }
 
 .results-grid {
@@ -76,12 +77,13 @@
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
+  padding-bottom: 20%;
 }
 
 .result-item {
   width: 200px;
   border: 1px solid #ccc;
-  border-radius: 8px;
+  border-radius: 15px;
   padding: 10px;
   background-color: #f9f9f9;
 }

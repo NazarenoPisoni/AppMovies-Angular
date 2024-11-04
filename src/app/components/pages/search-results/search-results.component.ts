@@ -8,16 +8,16 @@ import { MoviesService } from 'src/app/services/movies.service';
   styleUrls: ['./search-results.component.css']
 })
 export class SearchResultsComponent {
-  results: any[] = []; // Asegúrate de inicializar los resultados
+  results: any[] = []; 
 
   constructor(private route: ActivatedRoute, private moviesService: MoviesService) {}
 
   ngOnInit() {
-    this.route.queryParams.subscribe(params => {
-      const query = params['query'];
+    this.route.queryParams.subscribe(params => {const query = params['query'];
+      
       if (query) {
         this.moviesService.searchMoviesAndSeries(query).subscribe(response => {
-          this.results = response.results; // Almacena los resultados en la propiedad
+          this.results = response.results; 
         });
       }
     });

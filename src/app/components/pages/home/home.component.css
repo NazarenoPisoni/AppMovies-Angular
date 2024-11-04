@@ -1,58 +1,36 @@
-.carousel-inner
-{
-    height: 700px;
-}
-
-.carousel-inner .carousel-item img
-{
-    height: 700px;
-    object-fit: cover;
-}
-
-.carousel-caption h2
-{
-    color: #E50914;
-    font-weight: bold;
-    font-size: 30px;
-}
-
-.carousel-caption p 
-{
-    color: #ffffff;
-}
-
+/*muestra horizontal*/ 
 .rowposter{
     display: flex;
     overflow-y: hidden;
     overflow-x: scroll;
-}
+} 
 
+/* definicion del efecto al pasar curs*/
 .rowimg
 {
     max-height: 100px;
-    object-fit: contain;
+    object-fit:fill;
     width: 100%;
     box-sizing: content-box;
-    transition: transform 450ms;
-    margin-right: 7px;
-}
+    transition: transform 100ms;
+    margin-right: 10px;
+} 
 
+/*activa efecti al pasar cursor por encima*/
 .rowimg:hover
 {
     transform: scale(1.09);
     cursor: pointer;
-}
+} 
 
+/* tamaño imagen */
 .largeposter{
     max-height: 300px;
 }
 
-.rowposter::-webkit-scrollbar
+/*ocultar barra scroll*/
+ .rowposter::-webkit-scrollbar
 {
     display: none;
-}
+} 
 
-.fondo 
-{
-    background: linear-gradient(#000000 #31005f);
-}
