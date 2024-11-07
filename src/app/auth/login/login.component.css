@@ -1,0 +1,16 @@
+.backgroundlink {
+    color: black;
+}
+
+.backgroundlink:hover{
+    color: blue;
+}
+
+h4{
+    color: rgba(15, 12, 12, 0.753);
+}
+
+body{
+    height: 100%;
+    width: 100%;
+}

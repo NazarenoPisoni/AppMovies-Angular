@@ -6,12 +6,14 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchboxComponent } from './components/searchbox/searchbox.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { FilmDetailsComponent } from './components/pages/film-details/film-details.component';
 import { SearchResultsComponent } from './components/pages/search-results/search-results.component';
+import { LoginComponent } from './auth/login/login.component';
+import { SingUpComponent } from './auth/sing-up/sing-up.component';
 
 @NgModule({
   declarations: [
@@ -21,14 +23,17 @@ import { SearchResultsComponent } from './components/pages/search-results/search
     SearchboxComponent,
     HomeComponent,
     FilmDetailsComponent,
-    SearchResultsComponent   
+    SearchResultsComponent,
+    LoginComponent,
+    SingUpComponent   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,31 +1,31 @@
-/*muestra horizontal*/ 
+/*mostrar horizontal*/ 
 .rowposter{
     display: flex;
     overflow-y: hidden;
     overflow-x: scroll;
 } 
 
-/* definicion del efecto al pasar curs*/
+/*definicion del efecto al pasar curs*/
 .rowimg
 {
     max-height: 100px;
     object-fit:fill;
     width: 100%;
     box-sizing: content-box;
-    transition: transform 100ms;
-    margin-right: 10px;
+    transition: transform 20ms;
+    margin-right: 25px;
 } 
 
 /*activa efecti al pasar cursor por encima*/
 .rowimg:hover
 {
-    transform: scale(1.09);
+    transform: scale(1.10);
     cursor: pointer;
 } 
 
 /* tamaño imagen */
 .largeposter{
-    max-height: 300px;
+    max-height: 270px;
 }
 
 /*ocultar barra scroll*/

@@ -1,0 +1,77 @@
+<!-- <div class="container w-100%">
+  <h3 class="align-items-center">Inciar Sesión</h3>
+  <form [formGroup]="form" 
+  (ngSubmit)="onLogin()"
+  class="d-flex justify-content-center align-items-center">
+  
+      <input 
+      formControlName="username" 
+      placeholder="Username">
+      
+      <input 
+      formControlName="password" 
+      type="password" 
+      placeholder="Password">
+      
+      <button type="submit">Login</button>
+    </form>
+</div> -->
+
+  
+<!-- <div class="container-fluid">
+  <form [formGroup]="form" (ngSubmit)="onLogin()">
+
+    <div class="form-group">
+      <label for="exampleInputEmail1">Username</label>
+      <input 
+        formControlName="username" 
+        placeholder="Username">
+    </div>
+  
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input 
+      formControlName="password" 
+      type="password" 
+      placeholder="Password">
+    </div>
+  
+    <button type="submit" class="btn btn-info">Login</button>
+  
+  </form>
+</div>
+ -->
+
+ <div class="container-fluid">
+  <div class="d-flex justify-content-center align-items-center " style="height: 80vh;">
+    
+    <form [formGroup]="form" (ngSubmit)="onLogin()" class="p-2 border rounded text-bg-secondary p-3" style="width: 300px;">
+      <h4>Iniciar Sesión</h4>
+      <div class="form-group">
+        <h5 class="white-text mt-3">Username</h5>
+        <input 
+          formControlName="username" 
+          placeholder="Ingrese su nombre de usuario..." 
+          class="form-control">
+          
+      </div>
+
+      <div class="form-group">
+        <h5 class="white-text mt-3">Password</h5>
+        <input 
+          formControlName="password" 
+          type="password" 
+          placeholder="Ingrese su contraseña" 
+          class="form-control">
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block mt-3">Login</button>
+
+      <h6 class="ml-5 mt-3 align-items-center">No tiene usuario? 
+        <a routerLink="/signup" 
+        class="backgroundlink">Regístrese</a>
+      </h6>
+
+    </form>
+  </div>
+</div>

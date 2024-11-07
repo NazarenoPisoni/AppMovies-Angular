@@ -1,15 +1,24 @@
-<body>
+<!-- <body>
     <div id="nav" class="container">
         <div>
             <img src="assets\cinexplorer.png">
                 
         </div>
+
         <div>
             <a href="">Peliculas</a>
         </div>
-        <div>
-            <a href="#">Series</a>
+
+        <div class="flotar">
+            <div class="justify-content: space-between">
+            <a *ngIf="!AuthService.isLoggedIn()" routerLink="/login">Iniciar Sesion</a>
+            </div>
+
+            <div class="nav-right d-flex">
+            <button class="btn btn-secondary" *ngIf="AuthService.isLoggedIn()" (click)="logout()">Logout</button>
+            </div>
         </div>
+        
         
     </div>
     
@@ -22,3 +31,66 @@
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </nav> -->
+
+  <!-- <body>
+    <nav id="nav" class="navbar navbar-expand-lg navbar-light bg-transparent border-bottom">
+      <div class="container"> -->
+        <!-- Imagen y Enlaces de Navegación (Izquierda) -->
+       <!--  <a class="navbar-brand" href="#">
+          <img src="assets/cinexplorer.png" alt="Cinexplorer" height="40">
+        </a>
+        <div class="navbar-nav me-auto">
+          <a class="nav-link" href="#">Peliculas</a>
+          <a class="nav-link" href="#">Series</a>
+        </div> -->
+  
+        <!-- Botones de Iniciar Sesión, Registrarse y Logout (Derecha) -->
+<!--         <div class="d-flex align-items-center">
+ -->          <!-- Dropdown de Iniciar Sesión y Registrarse -->
+          <!-- <div class="nav-item dropdown me-2" *ngIf="!AuthService.isLoggedIn()">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Iniciar Sesión
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" routerLink="/login">Iniciar Sesión</a></li>
+              <li><a class="dropdown-item" routerLink="/signup">Registrarse</a></li>
+            </ul>
+          </div>
+   -->
+          <!-- Botón de Logout -->
+<!--           <button
+            *ngIf="AuthService.isLoggedIn()"
+            (click)="logout()"
+            class="btn btn-outline-danger"
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+    </nav>
+  </body> -->
+
+  <body>
+    <div id="nav" class="container">
+
+      <div class="nav-left">
+        <img src="assets/cinexplorer.png" alt="Logo">
+        <a href="#" class="ms-3">Peliculas</a> <!-- Espacio entre logo y link -->
+      </div>
+  
+      <div class="nav-right">
+        <a *ngIf="!AuthService.isLoggedIn()" routerLink="/login">Iniciar Sesión</a>
+        <button *ngIf="AuthService.isLoggedIn()" (click)="logout()" class="btn btn-secondary">Logout</button>
+      </div>
+    </div>
+    
+    <br>
+  </body>
+  

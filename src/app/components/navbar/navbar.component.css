@@ -1,4 +1,4 @@
-* {
+/* * {
     box-sizing: border-box;
 }
 
@@ -26,3 +26,45 @@ a {
     font-weight: bold;
     text-decoration: none;
 } 
+
+.flotar {
+    float: right;
+} */
+
+body {
+    height: 50px;
+    width: 100%;
+}
+
+#nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  #nav img {
+    height: 50px;
+    width: 150px; /* Tamaño ajustado para el logo, opcional */
+}
+  
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+}
+  
+.nav-right {
+    gap: 10px; /* Espacio entre los elementos de la derecha */
+    margin-top: 5px;
+}
+
+a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+} 
+  
+br{
+    color: white;
+    background-color: aliceblue;
+    display: block;
+}
