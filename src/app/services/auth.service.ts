@@ -8,7 +8,8 @@ export class AuthService {
     private apiUrl: string = 'http://localhost:3000/users';
 
     //private logueado = new BehaviorSubject<boolean>(this.isLoggedIn());
-    //estaLogueado = this.logueado.asObservable();  
+    private logueado = new BehaviorSubject<boolean>(false);
+    estaLogueado = this.logueado.asObservable();  
     
 
     constructor(private http: HttpClient) { }
@@ -32,6 +33,10 @@ export class AuthService {
     isLoggedIn (): boolean {
         return localStorage.getItem('isAuthenticated') === 'true';
     }
+
+/*     isLoggedIn() :Observable<boolean>{
+        return this.logueado.asObservable();
+    } */
 
     logOut (): void {
         localStorage.removeItem('isAuthenticated')

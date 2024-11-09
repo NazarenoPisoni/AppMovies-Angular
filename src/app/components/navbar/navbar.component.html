@@ -1,3 +1,20 @@
+<body>
+  <div id="nav" class="container">
+
+    <div class="nav-left">
+      <img src="assets/cinexplorer.png" alt="Logo">
+      <a href="#" class="ms-3">Peliculas</a> <!-- Espacio entre logo y link -->
+    </div>
+
+    <div class="nav-right">
+      <a *ngIf="!AuthService.isLoggedIn()" routerLink="/login">Iniciar Sesión</a>
+      <button *ngIf="AuthService.isLoggedIn()" (click)="logout()" class="btn btn-secondary">Salir</button>
+    </div>
+  </div>
+  
+  <br>
+</body>
+
 <!-- <body>
     <div id="nav" class="container">
         <div class="left">
@@ -78,20 +95,5 @@
     </nav>
   </body> -->
 
-  <body>
-    <div id="nav" class="container">
 
-      <div class="nav-left">
-        <img src="assets/cinexplorer.png" alt="Logo">
-        <a href="#" class="ms-3">Peliculas</a> <!-- Espacio entre logo y link -->
-      </div>
-  
-      <div class="nav-right">
-        <a *ngIf="!AuthService.isLoggedIn()" routerLink="/login">Iniciar Sesión</a>
-        <button *ngIf="AuthService.isLoggedIn()" (click)="logout()" class="btn btn-secondary">Logout</button>
-      </div>
-    </div>
-    
-    <br>
-  </body>
   
