@@ -1,15 +1,16 @@
 
 body {
     background: linear-gradient(135deg, #000000, #180033); 
-    background-attachment: fixed; /* Fija el fondo para que no se mueva */
+    background-attachment: fixed; 
     background-size: cover; /* Asegura que el gradiente cubra toda la pantalla */
-/*     background-attachment: fixed;
+
+    /*     
+    background-attachment: fixed;
     margin: 0;
     font-family: Arial, sans-serif; */
   }
 
 
- /* Establece el fondo con un gradiente fijo */
 body, html {
     height: 100%;
     margin: 0;

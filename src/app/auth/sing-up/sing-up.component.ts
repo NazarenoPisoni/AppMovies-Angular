@@ -36,13 +36,19 @@ export class SingUpComponent {
   singUp():void{
     if(this.singUpForm.valid){
       //const { username , password } = this.singUpForm.value;
-      const user = this.singUpForm.getRawValue() as Usuario;
-
+      //const user = this.singUpForm.getRawValue() as Usuario;
+      const user: Omit<Usuario, 'id'> = {
+        username: this.singUpForm.value.username!,
+        password: this.singUpForm.value.password!,
+        favorites: [],
+        watched: []
+      }
 
       this.authService.singup(user.username, user.password).subscribe(()=> {
-        alert ('Usuario registrado con éxito');
         this.router.navigate(['']);
       })
-    }else{return;}
+    }else{
+      return;
+    }
   }
 }

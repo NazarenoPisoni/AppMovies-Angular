@@ -17,8 +17,17 @@ export class NavbarComponent {
   constructor(public AuthService: AuthService, private router: Router) {}
 
   logout(): void {
+    if (this.router.url === '/'){
+
+      window.location.reload();
+
+    }else{
+      
+      this.router.navigate(['']);
+    }
+
     this.AuthService.logOut();
-    this.router.navigate(['/home']);
+    
   }
 
 

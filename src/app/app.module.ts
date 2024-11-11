@@ -14,6 +14,8 @@ import { FilmDetailsComponent } from './components/pages/film-details/film-detai
 import { SearchResultsComponent } from './components/pages/search-results/search-results.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SingUpComponent } from './auth/sing-up/sing-up.component';
+import { FavoritesMoviesComponent } from './favorites-movies/favorites-movies.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { SingUpComponent } from './auth/sing-up/sing-up.component';
     FilmDetailsComponent,
     SearchResultsComponent,
     LoginComponent,
-    SingUpComponent   
+    SingUpComponent,
+    FavoritesMoviesComponent,
+    FooterComponent   
   ],
   imports: [
     BrowserModule,

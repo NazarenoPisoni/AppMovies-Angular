@@ -1,0 +1,61 @@
+.cards-container {
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+}
+
+
+.card {
+    width: 10rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow:hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-right: 5px;
+    position: relative;
+}
+
+.card-img-top {
+    width: 100%;
+    height: auto;
+}
+
+.card-body {
+    padding: 10px;
+    text-align: center;
+    position:absolute; /* Añadir posición absoluta */ 
+    bottom: 0; /* Fijar al fondo de la tarjeta */
+}
+
+.card-title {
+    font-size: 1rem;
+    font-weight: italic;
+    margin-bottom: 1px;
+}
+
+.btn-primary {
+    background-color: #9900ff;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 2px;
+}
+
+.btn-primary:hover {
+    background-color: #9500b3;
+}
+
+.favorites-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px; /* Espacio entre el título y las tarjetas */
+  } 
+
+.cards-container::-webkit-scrollbar
+  {
+      display: none;
+  } 
+  

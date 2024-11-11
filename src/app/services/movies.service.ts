@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable, of, switchMap } from 'rxjs';
+import { Movie } from '../interfaces/movie.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -15,11 +16,11 @@ export class MoviesService {
 
   /* Solicitudes a apis para la carga de la home page */
 
-  getTrendingMovies() : Observable<any> {
+  /*getTrendingMovies() : Observable<any> {
     const URL = `https://api.themoviedb.org/3/trending/movie/week?api_key=${this.apiKey}&language=es`;
 
     return this.http.get(URL);
-  }
+  }*/
 
   getActionTrendingMovies() : Observable<any>{
     const URL = `${this.baseUrl}/discover/movie?api_key=${this.apiKey}&with_genres=28&language=es`;
@@ -92,6 +93,17 @@ export class MoviesService {
     return this.http.get(URL);
   }
 
-  
+  checkAndAddMovie(movie: any): Observable<any> {
+    const URL = `http://localhost:3000/movies/${movie.id}`;
+    return this.http.get(URL).pipe(
+        switchMap((existingMovie: any) => {
+            return of(existingMovie);
+        }),
+        catchError(() => {
+            return this.http.post(`http://localhost:3000/movies`, movie);
+        })
+    );
+}
   
 }
+  

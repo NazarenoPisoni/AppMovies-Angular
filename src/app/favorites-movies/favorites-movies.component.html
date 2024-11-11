@@ -1,0 +1,25 @@
+<!--   <div class="card-container" style="width: 10rem;">
+    <div class="card-body">
+
+    <div *ngFor="let item of favoritesMovies" class="card">
+
+    <img src="https://image.tmdb.org/t/p/original/{{ item.poster_path }}" class="card-img-top" alt="...">
+      <h5 class="card-title">{{ item.title }}</h5>
+      <p class="card-text"></p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+</div> -->
+
+
+<div class="cards-container mt-5">
+  <div *ngFor="let item of favoritesMovies" class="card">
+    <img src="https://image.tmdb.org/t/p/original/{{ item.poster_path }}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <p class="card-title">{{ item.title }}</p>
+      <button [routerLink]="['/details', item.id]" class="btn-primary">Detalles</button>
+      
+    </div>
+  </div>
+</div>
+

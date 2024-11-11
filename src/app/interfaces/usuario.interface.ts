@@ -1,6 +1,8 @@
 export interface Usuario {
-    id: number;
-    username: string;
-    password: string;
+  id: string;               
+  username: string;
+  password: string;         
+  favorites: number[];      
+  watched: number[];
   }
   

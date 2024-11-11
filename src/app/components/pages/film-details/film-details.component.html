@@ -1,6 +1,6 @@
 <div class="container-fluid">
 
-    <img src="https://image.tmdb.org/t/p/original/{{ movieDetails.backdrop_path }}" 
+    <img src="https://image.tmdb.org/t/p/original/{{ movieDetails?.backdrop_path }}" 
     class="backdrop_path" 
     alt="fondo" 
     style="position: absolute; width: 100%; height: 100%;  top: 0; left: 0; z-index: -1; opacity: 0.3;">
@@ -8,7 +8,7 @@
         <div *ngIf="movieDetails" class="row p-5" style="position: relative;">
 
           <div class="col-lg-2 mt-5" *ngIf="movieDetails.poster_path">
-             <img src="https://image.tmdb.org/t/p/original/{{ movieDetails.poster_path }}" />
+             <img src="https://image.tmdb.org/t/p/original/{{ movieDetails?.poster_path }}" />
           </div>
 
           <div class="col-lg-9 mt-4 p-4">
@@ -17,10 +17,19 @@
             <h5 class="text-white mt-2">Fecha de Lanzamiento: {{ movieDetails.release_date }}</h5> 
            <sub class="text-white">Promedio: {{ movieDetails.vote_average }}</sub>   
            
-           <div *ngIf="estaLogueado" class="p-4 gap: 3rem">
-            <button (click)="addToFavorites()" class="btn btn-primary me-3">Añadir a Favoritos</button>
-            <button (click)="markAsView()" class="btn btn-secondary">Marcar como Vista</button>
+         <!--   <div *ngIf="estaLogueado" class="p-4 gap: 3rem">
+            <button *ngIf="disableFavorite && !isFavorite" (click)="addToFavorites()" class="btn btn-primary me-3">Añadir a Favoritos</button>
+            <button *ngIf="!disableFavorite" (click)="eliminarDeFavorites()" class="btn btn-danger me-3">Eliminar de favoritos</button>
+            <button *ngIf="disableView" (click)="markAsView()" class="btn btn-secondary">Marcar como Vista</button>
+          </div> -->
+
+
+          <div *ngIf="estaLogueado" class="p-4 gap-3">
+            <button *ngIf="!isFavorite" (click)="addToFavorites()" class="btn btn-primary me-3">Añadir a Favoritos</button>
+            <button *ngIf="isFavorite" (click)="eliminarDeFavorites()" class="btn btn-danger me-3">Eliminar de Favoritos</button>
+            <button *ngIf="disableView" (click)="markAsView()" class="btn btn-secondary">Marcar como Vista</button>
           </div>
+          
         
           </div>
         </div>

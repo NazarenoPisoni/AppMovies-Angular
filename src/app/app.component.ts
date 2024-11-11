@@ -13,9 +13,9 @@ export class AppComponent {
   constructor(private movieService: MoviesService) {};
 
   ngOnInit() {
-    this.movieService.getTrendingMovies().subscribe(response=> {
+    /*this.movieService.getTrendingMovies().subscribe(response=> {
       console.log(response);
-    });
+    });*/
   }
   
 }

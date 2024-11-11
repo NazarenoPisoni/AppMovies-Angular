@@ -1,4 +1,6 @@
+import { AuthService } from './../../../services/auth.service';
 import { Component } from '@angular/core';
+import { Movie } from 'src/app/interfaces/movie.interface';
 import { MoviesService } from 'src/app/services/movies.service';
 
 @Component({
@@ -8,20 +10,25 @@ import { MoviesService } from 'src/app/services/movies.service';
 })
 export class HomeComponent {
 
-  public trendingMoviesResults: any[] = [];
-  public actionMoviesResults: any [] = [];
-  public fantasyMoviesResults: any[] = [];
-  public dramaMoviesResults: any[] = [];
-  public misteryMoviesResults: any[] = [];
-  public documentalMoviesResults: any[] = [];
-  public suspensoMoviesResults: any[] = [];
-  public crimenMoviesResults: any[] = [];
-  public comedyMoviesResults: any[] = [];
-  public cienciaFiccionMoviesResults: any[] = [];
+  public trendingMoviesResults: Movie[] = [];
+  public actionMoviesResults: Movie [] = [];
+  public fantasyMoviesResults: Movie[] = [];
+  public dramaMoviesResults: Movie[] = [];
+  public misteryMoviesResults: Movie[] = [];
+  public documentalMoviesResults: Movie[] = [];
+  public suspensoMoviesResults: Movie[] = [];
+  public crimenMoviesResults: Movie[] = [];
+  public comedyMoviesResults: Movie[] = [];
+  public cienciaFiccionMoviesResults: Movie[] = [];
 
-  constructor(private movieServices: MoviesService){}
+  constructor(private movieServices: MoviesService, private AuthService: AuthService){}
+  
+  estaLogueado: boolean = false;
 
   ngOnInit():void{
+
+    this.estaLogueado = this.AuthService.isLoggedIn();
+
     this.actionMovies();
     this.comedyMovies();
     this.fantasyMovies();

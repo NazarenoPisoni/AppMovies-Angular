@@ -16,7 +16,7 @@ export class SearchboxComponent {
   
   searchMovies() {
     if (this.searchTerm.trim() === '') {
-      return; //manejo busqueda vacia
+      return; 
     }
     
 
