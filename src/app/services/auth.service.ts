@@ -110,6 +110,18 @@ export class AuthService {
         );
     }
 
+    getUserWatched(): Observable<Movie[]> {
+        const userId = localStorage.getItem('id');
+        return this.http.get<Usuario>(`${this.apiUrl}/${userId}`).pipe(
+            switchMap(user => {
+                const watchedIds = user.watched;
+                const requests = watchedIds.map(id => this.http.get<Movie>(`http://localhost:3000/movies/${id}`));
+                console.log('vistos ids: ' + watchedIds);
+                return forkJoin(requests);
+            })
+        );
+    }
+
 
     eliminarDeFavs(userId: string, movieId: number): Observable<any> {
         return this.http.get<Usuario>(`${this.apiUrl}/${userId}`).pipe(

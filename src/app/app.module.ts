@@ -16,6 +16,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { SingUpComponent } from './auth/sing-up/sing-up.component';
 import { FavoritesMoviesComponent } from './favorites-movies/favorites-movies.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { WatchedMoviesComponent } from './watched-movies/watched-movies.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { FooterComponent } from './components/footer/footer.component';
     LoginComponent,
     SingUpComponent,
     FavoritesMoviesComponent,
-    FooterComponent   
+    FooterComponent,
+    WatchedMoviesComponent   
   ],
   imports: [
     BrowserModule,

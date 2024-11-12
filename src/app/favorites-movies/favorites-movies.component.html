@@ -11,7 +11,7 @@
   </div>
 </div> -->
 
-
+<h5 *ngIf="favoritesMovies.length > 0" class="text-white">Peliculas Favoritas</h5>
 <div class="cards-container mt-5">
   <div *ngFor="let item of favoritesMovies" class="card">
     <img src="https://image.tmdb.org/t/p/original/{{ item.poster_path }}" class="card-img-top" alt="...">
