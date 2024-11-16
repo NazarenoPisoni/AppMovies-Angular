@@ -39,9 +39,7 @@ export class SingUpComponent {
       //const user = this.singUpForm.getRawValue() as Usuario;
       const user: Omit<Usuario, 'id'> = {
         username: this.singUpForm.value.username!,
-        password: this.singUpForm.value.password!,
-        favorites: [],
-        watched: []
+        password: this.singUpForm.value.password!
       }
 
       this.authService.singup(user.username, user.password).subscribe(()=> {

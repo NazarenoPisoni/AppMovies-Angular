@@ -75,16 +75,19 @@ export class FilmDetailsComponent implements OnInit {
 
   checkIfFavorite(): void { 
     if (this.estaLogueado && this.userId)
-       { this.AuthService.getUser(this.userId).subscribe(user => 
+       { this.AuthService.getUserFavorites(this.userId).subscribe(favoriteMovies => 
         { 
-          this.isFavorite = user.favorites.includes(this.movieDetails.id); 
+          // Verifica si la película actual está en la lista de favoritos
+          this.isFavorite = favoriteMovies.some(movie => movie.id === this.movieDetails.id); 
         }); 
       } 
     }
 
   eliminarDeFavorites() {
     if (this.estaLogueado && this.userId) {
-      this.AuthService.eliminarDeFavs(this.userId, this.movieDetails.id).subscribe();
+      this.AuthService.eliminarDeFavs(this.userId, this.movieDetails.id).subscribe(() => {
+        this.isFavorite = false;
+      });
       this.isFavorite = false;
     }    
   }

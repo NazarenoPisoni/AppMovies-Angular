@@ -14,9 +14,9 @@ import { FilmDetailsComponent } from './components/pages/film-details/film-detai
 import { SearchResultsComponent } from './components/pages/search-results/search-results.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SingUpComponent } from './auth/sing-up/sing-up.component';
-import { FavoritesMoviesComponent } from './favorites-movies/favorites-movies.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { WatchedMoviesComponent } from './watched-movies/watched-movies.component';
+import { FavoritesMoviesComponent } from './components/favorites-movies/favorites-movies.component';
 
 @NgModule({
   declarations: [
@@ -29,9 +29,9 @@ import { WatchedMoviesComponent } from './watched-movies/watched-movies.componen
     SearchResultsComponent,
     LoginComponent,
     SingUpComponent,
-    FavoritesMoviesComponent,
     FooterComponent,
-    WatchedMoviesComponent   
+    WatchedMoviesComponent,
+    FavoritesMoviesComponent   
   ],
   imports: [
     BrowserModule,

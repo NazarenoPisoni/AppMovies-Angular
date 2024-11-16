@@ -15,12 +15,13 @@ export class WatchedMoviesComponent {
 
   ngOnInit (): void {
 
-    this.AuthService.getUserWatched().subscribe(movies => {
-
-      this.watchedMovies = movies;
-      
-      console.log('peliculas vistas desde el movie component' + movies );
-    });
+    const userId = localStorage.getItem('id');
+    if (userId) {
+      this.AuthService.getUserWatchedWithDetails(userId).subscribe(movies => {
+        this.watchedMovies = movies;
+        console.log('Peliculas vistas: ' , movies);
+      })
+    }
 
   }
 
