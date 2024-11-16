@@ -4,16 +4,40 @@
       "username": "Naza1991",
       "password": "Naza1234",
       "id": 1
+    },
+    {
+      "username": "Naza2",
+      "password": "Naza12345",
+      "id": 2
+    },
+    {
+      "username": "Naza3",
+      "password": "Naza33",
+      "id": 3
     }
   ],
   "favoritas": [
     {
       "id": "1",
-      "favoritas": []
+      "favoritas": [
+        533535,
+        671
+      ]
     },
     {
       "id": "2",
-      "favoritas": []
+      "favoritas": [
+        1022789,
+        533535,
+        671
+      ]
+    },
+    {
+      "id": "3",
+      "favoritas": [
+        533535,
+        675
+      ]
     }
   ],
   "vistas": [
@@ -23,12 +47,24 @@
         917496,
         573435,
         533535,
-        7220
+        7220,
+        671
       ]
     },
     {
       "id": "2",
-      "vistas": []
+      "vistas": [
+        573435,
+        533535,
+        917496
+      ]
+    },
+    {
+      "id": "3",
+      "vistas": [
+        573435,
+        1022789
+      ]
     }
   ]
 }

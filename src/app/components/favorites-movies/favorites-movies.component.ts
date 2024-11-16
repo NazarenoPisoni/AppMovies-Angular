@@ -14,12 +14,20 @@ export class FavoritesMoviesComponent implements OnInit {
   constructor(private AuthService: AuthService) {}
 
   ngOnInit(): void {
-    const userId = localStorage.getItem('id'); // Obtén el ID del usuario desde el localStorage
+    this.cargarPeliculasFavoritas();
+
+    this.AuthService.favoritesUpdated$.subscribe(() => {
+      this.cargarPeliculasFavoritas();
+    })
+  }
+
+  cargarPeliculasFavoritas(): void {
+    const userId = localStorage.getItem('id');
     if (userId) {
       this.AuthService.getUserFavorites(userId).subscribe(movies => {
-        this.favoritesMovies = movies; // Asigna los detalles de las películas favoritas
-        console.log('Películas favoritas desde el componente:', movies);
-      });
+        this.favoritesMovies = movies;
+        console.log('Películas favoritas desde el componente:', this.favoritesMovies);
+      })
     }
   }
 }

@@ -1,7 +1,7 @@
 import { Usuario } from 'src/app/interfaces/usuario.interface';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, catchError, EMPTY, forkJoin, map, Observable, of, switchMap } from 'rxjs';
+import { BehaviorSubject, catchError, EMPTY, forkJoin, map, Observable, of, switchMap, tap, throwError } from 'rxjs';
 import { Movie } from '../interfaces/movie.interface';
 import { Router } from '@angular/router';
 import { Favoritas } from '../interfaces/favoritas.interface';
@@ -13,6 +13,13 @@ export class AuthService {
     private apiUrl = 'http://localhost:3000/users';
     private apiUrlFavoritas: string = 'http://localhost:3000/favoritas';
     private apiUrlVistas: string = 'http://localhost:3000/vistas';
+
+    private favoritesUpdated = new BehaviorSubject<null | void>(null);
+    private watchedUpdated = new BehaviorSubject<null | void>(null);
+
+    get favoritesUpdated$() {
+        return this.favoritesUpdated.asObservable();
+    }
 
 
     private logueado = new BehaviorSubject<boolean>(this.isLoggedIn());
@@ -71,19 +78,34 @@ export class AuthService {
 
     addToFavorites(userId: string, movieId: number): Observable<any> {
         return this.http.get<Favoritas>(`${this.apiUrlFavoritas}/${userId}`).pipe(
-            switchMap(favoritas => {
+            switchMap(favoritasData => {
                 //const updatedFavorites = user.favorites || [];
-                const updatedFavorites = favoritas.favoritas || [];
+                const updatedFavorites = favoritasData?.favoritas || [];
 
                 if (!updatedFavorites.includes(movieId)) {
                     updatedFavorites.push(movieId);
-                    console.log("Agregar a favoritos funciono");
                     alert('La pelicula se agrego a favoritos');
-                    return this.http.patch(`${this.apiUrlFavoritas}/${userId}`, { favoritas: updatedFavorites });
-                } else {
-                    alert('La pelicula ya se encuentra en favoritos');
-                    return EMPTY;
+                } 
+                return this.http.patch(`${this.apiUrlFavoritas}/${userId}`, { favoritas: updatedFavorites }).pipe(
+                    tap(() => this.favoritesUpdated.next())
+                );
+            }),
+            catchError(err => {
+                // Si ocurre un 404, creamos un nuevo registro para este usuario
+                if (err.status === 404) {
+                    const newFavorite = {
+                        id: userId,
+                        favoritas: [movieId]
+                    };
+                    return this.http.post(`${this.apiUrlFavoritas}`, newFavorite).pipe(
+                        tap(() => {
+                          console.log('Nuevo registro de favoritos creado para el usuario:', newFavorite);
+                          this.favoritesUpdated.next(); // Emitimos el evento
+                        })
+                      );
                 }
+                // Si no es un 404, lanzamos el error
+                return throwError(() => err);
             })
         );
     }
@@ -92,7 +114,7 @@ export class AuthService {
         return this.http.get<Vistas>(`${this.apiUrlVistas}/${userId}`).pipe(
             switchMap(vistasData => {
                 //const updatedWatched = user.watched || [];
-                const updatedWatched = vistasData.vistas || [];
+                const updatedWatched = vistasData?.vistas || [];
 
                 if (!updatedWatched.includes(movieId)) {
                     updatedWatched.push(movieId);
@@ -100,16 +122,38 @@ export class AuthService {
                 } else {
                     console.log('La Pelicula ya esta marcada como vista');
                 }
-                return this.http.patch(`${this.apiUrlVistas}/${userId}`, { vistas: updatedWatched });
+                return this.http.patch(`${this.apiUrlVistas}/${userId}`, { vistas: updatedWatched }).pipe(
+                    tap(() => this.watchedUpdated.next())
+                );
+            }),
+            catchError(err => {
+                // Si ocurre un 404, creamos un nuevo registro para este usuario
+                if (err.status === 404) {
+                    const newWatched = {
+                        id: userId,
+                        vistas: [movieId]
+                    };
+                    return this.http.post(`${this.apiUrlVistas}`, newWatched).pipe(
+                        tap(() => {
+                          console.log('Nuevo registro de vistos creado para el usuario:', newWatched);
+                          this.watchedUpdated.next(); // Emitimos el evento
+                        })
+                      );
+                }
+                // Si no es un 404, lanzamos el error
+                return throwError(() => err);
             })
         );
     }
 
     getUserFavorites(userId: string): Observable<Movie[]> {
-        return this.http.get<Favoritas[]>(`${this.apiUrlFavoritas}?userId=${userId}`).pipe(
+        return this.http.get<Favoritas>(`${this.apiUrlFavoritas}/${userId}`).pipe(
           switchMap(favoritasData => {
-            const movieIds = favoritasData[0]?.favoritas || []; // Obtén los IDs de las películas favoritas del usuario
-            const requests: Observable<Movie>[] = movieIds.map(movieId => 
+            const movieIds: number[] = favoritasData.favoritas || [];
+            if (movieIds.length === 0) {
+                return of([]);
+            } // Obtén los IDs de las películas favoritas del usuario
+            const requests = movieIds.map(movieId => 
               this.http.get<Movie>(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${this.apiKey}`)
             ); // Solicita los detalles de cada película a The Movie DB u otra API externa
             return forkJoin(requests); // Combina las respuestas en un array de objetos Movie

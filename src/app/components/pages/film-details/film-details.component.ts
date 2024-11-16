@@ -67,8 +67,10 @@ export class FilmDetailsComponent implements OnInit {
   addToFavorites (){
     
     if (this.estaLogueado && this.userId) {
-      this.AuthService.addToFavorites(this.userId, this.movieDetails.id).subscribe();
-      this.disableFavorite = false;
+      this.AuthService.addToFavorites(this.userId, this.movieDetails.id).subscribe(() => {
+        this.isFavorite = true;
+        alert('Película agregada a favoritos');
+      });
     }    
 
   } 
