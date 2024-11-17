@@ -93,7 +93,20 @@ export class HomeComponent {
       this.cienciaFiccionMoviesResults = result.results;
     });
   }
-    
+
+  scrollLeft(rowId: string) {
+    const row = document.getElementById(rowId);
+    if (row) {
+      row.scrollBy({ left: -300, behavior: 'smooth' });
+    }
+  }
+  
+  scrollRight(rowId: string) {
+    const row = document.getElementById(rowId);
+    if (row) {
+      row.scrollBy({ left: 300, behavior: 'smooth' });
+    }
+  }   
 
 
 }
