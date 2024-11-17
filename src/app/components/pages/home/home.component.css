@@ -3,7 +3,16 @@
     display: flex;
     overflow-y: hidden;
     overflow-x: scroll;
+    scroll-behavior: smooth;
+    transition: transform 0.2s ease-in-out;
 } 
+
+.rowposter.wobble {
+    transform: scale(1.02); /* Pequeño zoom para simular movimiento */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Sombras para el efecto dinámico */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
 
 /*definicion del efecto al pasar curs*/
 .rowimg

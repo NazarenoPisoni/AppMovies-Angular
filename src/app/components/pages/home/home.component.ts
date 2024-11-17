@@ -97,6 +97,7 @@ export class HomeComponent {
   scrollLeft(rowId: string) {
     const row = document.getElementById(rowId);
     if (row) {
+      this.applyWobbleEffect(row);
       row.scrollBy({ left: -300, behavior: 'smooth' });
     }
   }
@@ -104,9 +105,16 @@ export class HomeComponent {
   scrollRight(rowId: string) {
     const row = document.getElementById(rowId);
     if (row) {
+      this.applyWobbleEffect(row);
       row.scrollBy({ left: 300, behavior: 'smooth' });
     }
   }   
 
+  applyWobbleEffect(row: HTMLElement) {
+    row.classList.add('wobble'); // Agregar la clase de efecto
+    setTimeout(() => {
+      row.classList.remove('wobble'); // Removerla después de 300ms
+    }, 300); // El tiempo debe coincidir con el `transition` definido en CSS
+  }
 
 }
