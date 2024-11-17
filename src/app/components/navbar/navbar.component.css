@@ -80,3 +80,7 @@ br{
     background-color: aliceblue;
     display: block;
 }
+
+#welcome {
+    color: white;
+}

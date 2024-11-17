@@ -11,10 +11,13 @@ import { Router } from '@angular/router';
 export class NavbarComponent {
 
   public image:String = 'https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg';
+  public username: string | null = '';
 
   searchTermi: string = '';
 
-  constructor(public AuthService: AuthService, private router: Router) {}
+  constructor(public AuthService: AuthService, private router: Router) {
+    this.username = this.AuthService.getUsername();
+  }
 
   logout(): void {
     if (this.router.url === '/'){

@@ -44,9 +44,10 @@ export class AuthService {
         return this.http.get<Usuario[]>(`${this.apiUrl}?username=${username}&password=${password}`).pipe(
             map(users => {
                 if (users.length > 0) {
-
+                    const user = users[0];
                     localStorage.setItem('isAuthenticated', 'true');
-                    localStorage.setItem('id', users[0].id);
+                    localStorage.setItem('id', user.id);
+                    localStorage.setItem('username', user.username);
                     this.logueado.next(true);
                     return true;
                 }
@@ -72,6 +73,7 @@ export class AuthService {
 
     logOut(): void {
         localStorage.removeItem('isAuthenticated');
+        localStorage.removeItem('username');
         this.logueado.next(false);
     }
 
@@ -203,6 +205,10 @@ export class AuthService {
 
     getUser(userId: string): Observable<Usuario> {
         return this.http.get<Usuario>(`${this.apiUrl}/${userId}`);
+    }
+
+    getUsername(): string | null {
+        return localStorage.getItem('username');
     }
 
 }
