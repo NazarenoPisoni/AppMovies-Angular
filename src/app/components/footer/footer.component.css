@@ -1,3 +1,14 @@
-* {
-    color: white;
+#footer {
+    display: flex; /* Activa flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    text-align: center; /* Asegura que el texto esté centrado */
+    width: 100%; /* Asegura que ocupe el ancho completo */
+    height: 60px; /* Define una altura consistente */
+    background-color: #000; /* Fondo negro para el footer */
+    color: white; /* Texto en blanco */
+    position: fixed; /* Para mantenerlo en la parte inferior */
+    bottom: 0; /* Pega el footer al fondo */
+    left: 0; /* Alinea con el borde izquierdo */
+    font-size: 14px; /* Ajusta el tamaño del texto */
 }
