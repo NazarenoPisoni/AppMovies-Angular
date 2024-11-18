@@ -13,12 +13,13 @@ export class FilmDetailsComponent implements OnInit {
 
     
   estaLogueado = false;
-  disableView: boolean = true;
   disableFavorite: boolean = true;
   
   private userId: string | null = null;
   public movieDetails: any;
   isFavorite: boolean = false;
+  isView: boolean = false;
+
 
   constructor(
     private router: ActivatedRoute,
@@ -38,6 +39,7 @@ export class FilmDetailsComponent implements OnInit {
     this.userId = localStorage.getItem('id'); 
 
     this.checkIfFavorite();
+    this.checkIfView();
 
     //console.log('id desde details components' + this.userId);
 
@@ -59,20 +61,27 @@ export class FilmDetailsComponent implements OnInit {
   markAsView (){
     if (this.estaLogueado && this.userId) {
       this.AuthService.markAsWatched(this.userId, this.movieDetails.id).subscribe();
-      alert ('Pelicula agregada como vista');
-      this.disableView = false;
+      //alert ('Pelicula agregada como vista');
+      this.isView = true;
     }
   }
+
+  unmarkAsViewed() {
+    if (this.estaLogueado && this.userId) {
+        this.AuthService.unmarkAsWatched(this.userId, this.movieDetails.id).subscribe(() => {
+            //alert('Película desmarcada como vista');
+            this.isView = false; // Actualiza el estado local para deshabilitar el botón de desmarcar
+        });
+    }
+}
 
   addToFavorites (){
     
     if (this.estaLogueado && this.userId) {
       this.AuthService.addToFavorites(this.userId, this.movieDetails.id).subscribe(() => {
         this.isFavorite = true;
-        alert('Película agregada a favoritos');
       });
     }    
-
   } 
 
   checkIfFavorite(): void { 
@@ -84,6 +93,17 @@ export class FilmDetailsComponent implements OnInit {
         }); 
       } 
     }
+
+    checkIfView(): void {
+      if (this.estaLogueado && this.userId) {
+          // Llamada al servicio para obtener las películas vistas del usuario
+          this.AuthService.getUserWatchedWithDetails(this.userId).subscribe(watchedMovies => {
+              // Verifica si la película actual está en la lista de vistas
+              this.isView = watchedMovies.some(movie => movie.id === this.movieDetails.id);
+          });
+      }
+  }
+  
 
   eliminarDeFavorites() {
     if (this.estaLogueado && this.userId) {

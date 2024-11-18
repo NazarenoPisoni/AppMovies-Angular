@@ -20,14 +20,15 @@
          <!--   <div *ngIf="estaLogueado" class="p-4 gap: 3rem">
             <button *ngIf="disableFavorite && !isFavorite" (click)="addToFavorites()" class="btn btn-primary me-3">Añadir a Favoritos</button>
             <button *ngIf="!disableFavorite" (click)="eliminarDeFavorites()" class="btn btn-danger me-3">Eliminar de favoritos</button>
-            <button *ngIf="disableView" (click)="markAsView()" class="btn btn-secondary">Marcar como Vista</button>
+            <button *ngIf="isView" (click)="markAsView()" class="btn btn-secondary">Marcar como Vista</button>
           </div> -->
 
 
           <div *ngIf="estaLogueado" class="p-4 gap-3">
             <button *ngIf="!isFavorite" (click)="addToFavorites()" class="btn btn-primary me-3">Añadir a Favoritos</button>
             <button *ngIf="isFavorite" (click)="eliminarDeFavorites()" class="btn btn-danger me-3">Eliminar de Favoritos</button>
-            <button *ngIf="disableView" (click)="markAsView()" class="btn btn-secondary">Marcar como Vista</button>
+            <button *ngIf="!isView" (click)="markAsView()" class="btn btn-secondary">Marcar como Vista</button>
+            <button *ngIf="isView" (click)="unmarkAsViewed()" class="btn btn-warning">Desmarcar como Vista</button>
           </div>
           
         

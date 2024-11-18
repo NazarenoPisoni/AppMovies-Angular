@@ -3,17 +3,32 @@
     {
       "username": "Naza1991",
       "password": "Naza1234",
-      "id": 1
+      "id": "1"
     },
     {
       "username": "Naza2",
       "password": "Naza12345",
-      "id": 2
+      "id": "2"
     },
     {
       "username": "Naza3",
       "password": "Naza33",
-      "id": 3
+      "id": "3"
+    },
+    {
+      "id": "7aa9",
+      "username": "MartinGarat",
+      "password": "1234"
+    },
+    {
+      "id": "a17a",
+      "username": "Marta",
+      "password": "1234"
+    },
+    {
+      "id": "6aa7",
+      "username": "claudio@gmail.com",
+      "password": "1234"
     }
   ],
   "favoritas": [
@@ -38,6 +53,22 @@
       "favoritas": [
         533535,
         675
+      ]
+    },
+    {
+      "id": "7aa9",
+      "favoritas": [
+        1100782,
+        933260,
+        519182,
+        845781,
+        1371727
+      ]
+    },
+    {
+      "id": "6aa7",
+      "favoritas": [
+        917496
       ]
     }
   ],
@@ -66,6 +97,16 @@
       "vistas": [
         573435,
         1022789
+      ]
+    },
+    {
+      "id": "7aa9",
+      "vistas": []
+    },
+    {
+      "id": "6aa7",
+      "vistas": [
+        917496
       ]
     }
   ]

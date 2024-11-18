@@ -1,5 +1,5 @@
 import { AuthService } from './../../services/auth.service';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, OnInit } from '@angular/core';
 import { SearchboxComponent } from '../searchbox/searchbox.component';
 import { Router } from '@angular/router';
 
@@ -16,6 +16,10 @@ export class NavbarComponent {
   searchTermi: string = '';
 
   constructor(public AuthService: AuthService, private router: Router) {
+    //this.username = this.AuthService.getUsername();
+  }
+
+  ngOnInit(): void {
     this.username = this.AuthService.getUsername();
   }
 

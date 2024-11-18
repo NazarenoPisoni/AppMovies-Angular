@@ -86,7 +86,7 @@ export class AuthService {
 
                 if (!updatedFavorites.includes(movieId)) {
                     updatedFavorites.push(movieId);
-                    alert('La pelicula se agrego a favoritos');
+                    //alert('La pelicula se agrego a favoritos');
                 } 
                 return this.http.patch(`${this.apiUrlFavoritas}/${userId}`, { favoritas: updatedFavorites }).pipe(
                     tap(() => this.favoritesUpdated.next())
@@ -148,6 +148,36 @@ export class AuthService {
         );
     }
 
+    unmarkAsWatched(userId: string, movieId: number): Observable<any> {
+        return this.http.get<Vistas>(`${this.apiUrlVistas}/${userId}`).pipe(
+            switchMap(existingWatchedMovies => {
+                const updatedWatched = existingWatchedMovies?.vistas || [];
+    
+                // Verifica si la película está en la lista
+                if (updatedWatched.includes(movieId)) {
+                    const newWatchedList = updatedWatched.filter(id => id !== movieId);
+                    console.log('Película eliminada de vistas.');
+    
+                    // Actualiza el registro del usuario
+                    return this.http.patch(`${this.apiUrlVistas}/${userId}`, { vistas: newWatchedList }).pipe(
+                        tap(() => {
+                            this.watchedUpdated.next(); // Emitimos el evento
+                            console.log('Lista de vistas actualizada.');
+                        })
+                    );
+                } else {
+                    console.log('La película no está marcada como vista.');
+                    return of(null); // Si no está marcada, no hay cambios
+                }
+            }),
+            catchError(err => {
+                console.error('Error al eliminar la película de vistas:', err);
+                return throwError(() => err);
+            })
+        );
+    }
+    
+
     getUserFavorites(userId: string): Observable<Movie[]> {
         return this.http.get<Favoritas>(`${this.apiUrlFavoritas}/${userId}`).pipe(
           switchMap(favoritasData => {
@@ -190,9 +220,9 @@ export class AuthService {
 
                     updatedFavorites = updatedFavorites.filter(id => id !== movieId);
                     console.log('Eliminar de favoritos funciono');
-                    alert('La pelicula se elimino de favoritos');
+                    //alert('La pelicula se elimino de favoritos');
                 } else {
-                    alert('La pelicula no se encuentra en favoritos');
+                    //alert('La pelicula no se encuentra en favoritos');
                 }
                 return this.http.patch(`${this.apiUrlFavoritas}/${userId}`, { favoritas: updatedFavorites });
             }),

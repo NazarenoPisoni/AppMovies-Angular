@@ -84,3 +84,21 @@ br{
 #welcome {
     color: white;
 }
+
+.italica {
+    font-style: italic;
+}
+
+.negrita{
+    font-style: oblique;
+}
+
+/* .text-gradient {
+   
+        font-weight: bold;
+        background: linear-gradient(90deg, #f5087e, #8c03db);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 1.2rem;    
+} */
