@@ -17,6 +17,8 @@ import { SingUpComponent } from './auth/sing-up/sing-up.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { WatchedMoviesComponent } from './watched-movies/watched-movies.component';
 import { FavoritesMoviesComponent } from './components/favorites-movies/favorites-movies.component';
+import { GenreSelectorComponent } from './components/genre-selector/genre-selector.component';
+import { MoviesPorGeneroComponent } from './components/movies-por-genero/movies-por-genero.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { FavoritesMoviesComponent } from './components/favorites-movies/favorite
     SingUpComponent,
     FooterComponent,
     WatchedMoviesComponent,
-    FavoritesMoviesComponent   
+    FavoritesMoviesComponent,
+    GenreSelectorComponent,
+    MoviesPorGeneroComponent   
   ],
   imports: [
     BrowserModule,

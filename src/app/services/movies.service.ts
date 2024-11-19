@@ -103,7 +103,12 @@ export class MoviesService {
             return this.http.post(`http://localhost:3000/movies`, movie);
         })
     );
-}
+  }
+
+  getGenres(): Observable<any> {
+    const URL = `https://api.themoviedb.org/3/genre/movie/list?api_key=${this.apiKey}`
+    return this.http.get<any>(URL);
+  }
   
 }
   

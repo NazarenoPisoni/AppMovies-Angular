@@ -1,0 +1,13 @@
+<div class="container">
+    <h2>Selecciona un Género</h2>
+    <div class="row">
+      <div class="col-md-3" *ngFor="let genre of genres">
+        <button 
+          class="btn btn-primary my-2 w-100" 
+          (click)="onGenreSelect(genre.id)">
+          {{ genre.name }}
+        </button>
+      </div>
+    </div>
+  </div>
+  

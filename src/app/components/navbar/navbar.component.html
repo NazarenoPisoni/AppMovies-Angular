@@ -8,7 +8,7 @@
 
     <div class="nav-right">
       <span *ngIf="AuthService.isLoggedIn()" class="me-3 italica" id="welcome">
-        Bienvenido <span class="text-gradient">{{ username }}!</span>
+        Bienvenido <span class="text-gradient">{{ username }}</span>
       </span>
       <a *ngIf="!AuthService.isLoggedIn()" routerLink="/login">Iniciar Sesión</a>
       <button *ngIf="AuthService.isLoggedIn()" (click)="logout()" class="btn btn-secondary">Salir</button>
